@@ -1,0 +1,150 @@
+.brand-hero-fx {
+  background-color: #071433;
+  background-image:
+    radial-gradient(540px 420px at 18% 16%, rgba(10, 92, 255, 0.55), transparent 62%),
+    radial-gradient(680px 520px at 82% 72%, rgba(10, 92, 255, 0.85), transparent 58%),
+    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: auto, auto, 56px 56px, 56px 56px;
+  animation: brand-grid 22s linear infinite;
+}
+
+.brand-hero-wash {
+  background: radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.18), transparent 46%);
+  background-size: 160% 160%;
+  animation: brand-wash 16s ease-in-out infinite;
+}
+
+.brand-outline {
+  color: transparent;
+  -webkit-text-stroke: 0.03em #fff;
+}
+
+.brand-orbit {
+  container-type: size;
+  width: min(100%, 560px);
+  aspect-ratio: 1;
+}
+
+.brand-orbit-spin {
+  animation: brand-spin 32s linear infinite;
+}
+
+.brand-orbit-slot {
+  width: 4rem;
+  height: 4rem;
+  margin: -2rem 0 0 -2rem;
+  transform: rotate(var(--a)) translateY(-140px);
+}
+
+@supports (width: 1cqw) {
+  .brand-orbit-slot {
+    transform: rotate(var(--a)) translateY(-38cqw);
+  }
+}
+
+.brand-orbit-upright {
+  transform: rotate(var(--up));
+  animation: brand-counter 32s linear infinite;
+}
+
+.brand-float {
+  transform: rotate(var(--tilt));
+  animation: brand-float 5.5s ease-in-out infinite;
+}
+
+.brand-bench {
+  background-color: #e7eeff;
+  background-image:
+    linear-gradient(rgba(10, 92, 255, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 92, 255, 0.14) 1px, transparent 1px);
+  background-size: 28px 28px;
+  animation: brand-mat 28s linear infinite;
+}
+
+.brand-slip {
+  transform: rotate(var(--slip));
+}
+
+.brand-motion-off .brand-orbit-spin,
+.brand-motion-off .brand-orbit-upright,
+.brand-motion-off .brand-float,
+.brand-motion-off .brand-hero-fx,
+.brand-motion-off .brand-hero-wash,
+.brand-motion-off .brand-bench {
+  animation-play-state: paused;
+}
+
+@keyframes brand-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes brand-counter {
+  from {
+    transform: rotate(var(--up));
+  }
+  to {
+    transform: rotate(calc(var(--up) - 360deg));
+  }
+}
+
+@keyframes brand-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(var(--tilt));
+  }
+  50% {
+    transform: translate3d(0, -16px, 0) rotate(var(--tilt));
+  }
+}
+
+@keyframes brand-grid {
+  to {
+    background-position:
+      0 0,
+      0 0,
+      56px 56px,
+      56px 56px;
+  }
+}
+
+@keyframes brand-mat {
+  to {
+    background-position:
+      28px 28px,
+      28px 28px;
+  }
+}
+
+@keyframes brand-wash {
+  0%,
+  100% {
+    background-position: 0% 40%;
+  }
+  50% {
+    background-position: 100% 60%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-hero-fx,
+  .brand-hero-wash,
+  .brand-orbit-spin,
+  .brand-orbit-upright,
+  .brand-float,
+  .brand-bench,
+  .brand-rise,
+  .brand-slip {
+    animation: none !important;
+  }
+
+  .brand-slip {
+    transform: none;
+  }
+
+  .brand-pause {
+    display: none;
+  }
+}
