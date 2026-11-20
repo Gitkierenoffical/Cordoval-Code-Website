@@ -1,0 +1,19 @@
+.code-caret {
+  animation: code-caret 1.1s steps(1) infinite;
+}
+
+@keyframes code-caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+.brand-motion-off .code-caret {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .code-caret {
+    animation: none;
+  }
+}
